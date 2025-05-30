@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-blue
+      h1 Eurovision #{edicao.anoEdição}
+      a.w3-button.w3-margin-bottom.w3-white(href='/') Voltar à Página Principal
+    
+    .w3-container
+      p
+        strong ID: 
+        | #{edicao._id}
+      p
+        strong Ano: 
+        | #{edicao.anoEdição}
+      p
+        strong Organizador: 
+        a(href=`/paises/${edicao.organizacao}`)= edicao.organizacao
+      p
+        strong Vencedor: 
+        if edicao.vencedor
+          a(href=`/paises/${edicao.vencedor}`)= edicao.vencedor
+        else
+          | Sem Vencedor
+      
+      h3.w3-margin-top Músicas
+      table.w3-table.w3-striped.w3-bordered
+        thead
+          tr.w3-blue
+            th Música
+            th Intérprete
+            th País
+        tbody
+          each musica in edicao.musicas
+            tr
+              td= musica.título
+              td= musica.intérprete
+              td= musica.país
+    
+    footer.w3-container.w3-blue.w3-margin-top
