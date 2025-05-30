@@ -1,5 +1,5 @@
 // 1. Contagem total de edições
-db.edicoes.countDocuments({})
+db.edicoes.countDocuments()
 
 // 2. Edições onde a Irlanda foi vencedora
 db.edicoes.countDocuments({ vencedor: "Ireland" })

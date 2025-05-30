@@ -20,7 +20,7 @@ ENGWEB2025-Normal/
 │   └── package.json
 ├── PR.md                    # Este relatório
 ├── eurovisao.json           # Dataset USADO
-├── dataset.json             # Dataset ORIGINAL
+├── datasetORIGINAL.json             # Dataset ORIGINAL
 ├── script_dataset.json      # Script Usado
 ```
 
@@ -73,6 +73,10 @@ print('Arquivo eurovisao_edicoes.json criado com sucesso!')
 ###  Importação para o MongoDB
 Comando utilizado para importação:
 ```bash
+docker cp eurovisao.json mongoEW:/tmp
+
+docker exec -it mongoEW sh
+
 mongoimport -d eurovisao -c edicoes /tmp/eurovisao.json --jsonArray
 ```
 
